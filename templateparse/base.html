@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items List</title>
+</head>
+<body>
+    <h1>Items List:</h1>
+    <ol>
+        {{ range . }}
+        <li>
+    <span class="titleline"><a href="{{ .URL }}">{{ .Title}}</a></span>
+
+            
+        </li>
+        {{ end }}
+    </ol>
+</body>
+</html>
+
