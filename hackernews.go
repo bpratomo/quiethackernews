@@ -8,7 +8,10 @@ import (
 )
 
 func main() {
-    stories := api.FetchStories()
+    stories, err := api.FetchStories()
+    if err != nil {
+        fmt.Printf("Failed to fetch stories: %v", err)
+    }
     template := templateparse.Render()
 
 
@@ -21,8 +24,6 @@ func main() {
 			return
 		}
 
-
-
 		// Step 4: Set the Headers (Optional)
 		w.Header().Set("Content-Type", "text/plain")
 
@@ -31,6 +32,4 @@ func main() {
 	})
 
 	http.ListenAndServe(":8080", nil)
-
-
 }
